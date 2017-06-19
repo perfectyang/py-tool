@@ -40,7 +40,9 @@ const state = {
 }
 const mutations = {
   'GET_USER' (state) {
-    return state
+    setTimeout(_ => {
+      return state
+    }, 1000)
   },
   'SET_USER' (state, obj) {
     Object.assign(state, obj)
