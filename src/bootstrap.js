@@ -15,16 +15,12 @@ Vue.http.options.emulateJSON = true
 // vuex state管理
 import store from './store'
 
-
 var bootstrap = function ({ Router, Component, routes, options }) {
-
   // 注册本地全局组件
   // Object.values(Components).forEach(component => {
   //   Vue.component(component.name, component)
   // })
 
-  // vue-router路由使用
-  // import Router from './router'
   // ---- 全局路由设置
   // 将store跟路由绑定
   const router = Router ? Router(store, routes, options) : {}

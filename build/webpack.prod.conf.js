@@ -11,6 +11,13 @@ var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 var env = config.build.env
 
+var Mutil = require('./mutil')
+// 多页面配置
+var prodHtmlWebpacks = Mutil.prodHtmlWebpacks(HtmlWebpackPlugin)
+var chunks = Object.keys(Mutil.entries)
+// 图片压缩
+var ImageminPlugin = require('imagemin-webpack-plugin').default
+
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -84,6 +91,16 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      disable: process.env.NODE_ENV !== 'production', // Disable during development
+      pngquant: {
+        quality: '65-90'
+      },
+      optipng: {
+        optimizationLevel: 7
+      }
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -92,7 +109,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ].concat(prodHtmlWebpacks)
 })
 
 if (config.build.productionGzip) {

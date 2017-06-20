@@ -11,6 +11,11 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
+var Mutil = require('./mutil')
+// var kzConfig = require('../config/kz-config')
+// 多页面配置
+var htmlPlugins = Mutil.htmlWebpacks(HtmlWebpackPlugin)
+
 module.exports = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
@@ -32,5 +37,5 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrorsPlugin()
-  ]
+  ].concat(htmlPlugins)
 })
