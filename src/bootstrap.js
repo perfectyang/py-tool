@@ -10,7 +10,6 @@ Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 // REST/HTTP方式
 // Vue.http.options.emulateHTTP = true;
-
 // 入口布局组件
 // vuex state管理
 import store from './store'

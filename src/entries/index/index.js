@@ -4,7 +4,7 @@ import Router from '@/router'
 import routes from './router'
 // 入口视图组件
 import Component from './view'
-
+import '@/assets/css/public.css'
 // 注册多页面共用组件
 // import * as LocalComponents from './components'
 
