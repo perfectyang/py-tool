@@ -1,6 +1,7 @@
 <template>
   <div class="">
     {{User}}
+    <span>试试撒</span>
     <button type="button" name="button" @click="getUser">getUser</button>
   </div>
 </template>

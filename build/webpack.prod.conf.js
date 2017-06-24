@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var FastUglifyJsPlugin = require('fast-uglifyjs-plugin')
 
 var env = config.build.env
 
@@ -30,11 +31,24 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      sourceMap: false
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   },
+    //   sourceMap: false
+    // }),
+    new FastUglifyJsPlugin({
+        compress: {
+            warnings: false
+        },
+        // set debug as true to output detail cache information           
+        debug: false,
+        // enable cache by default to improve uglify performance. set false to turn it off
+        cache: true,
+        // root directory is the default cache path. it can be configured by following setting
+        cacheFolder: path.resolve(__dirname, '.otherFolder'),
+        // num of worker process default ,os.cpus().length
+        workerNum: 2
     }),
     // extract css into its own file
     new ExtractTextPlugin({

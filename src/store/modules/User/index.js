@@ -19,7 +19,7 @@ const setUser = async ({ commit }, payload) => {
   commit('SET_USER', {
     info: back.info,
     list: {
-      name: '舞台右在在'
+      name: '舞台右在在2222'
     }
   })
 }
