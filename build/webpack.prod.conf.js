@@ -46,7 +46,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // enable cache by default to improve uglify performance. set false to turn it off
         cache: true,
         // root directory is the default cache path. it can be configured by following setting
-        cacheFolder: path.resolve(__dirname, '.otherFolder'),
+        cacheFolder: path.resolve(__dirname, '../othercache'),
         // num of worker process default ,os.cpus().length
         workerNum: 2
     }),
