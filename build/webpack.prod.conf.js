@@ -29,10 +29,10 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: false,
   output: {
     path: config.build.assetsRoot,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
-    filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[id].js')
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
+    // filename: utils.assetsPath('js/[name].js'),
+    // chunkFilename: utils.assetsPath('js/[id].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -113,6 +113,15 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
+    //  new webpack.DllPlugin({
+    //   path: path.join(__dirname, 'dist', '[name]-manifest.json'),
+    //   *
+    //    * name
+    //    * dll bundle 输出到那个全局变量上
+    //    * 和 output.library 一样即可。 
+       
+    //   // name: '[name]_library'
+    // })
   ].concat(prodHtmlWebpacks)
 })
 

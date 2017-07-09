@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    this is another example for
+    this is a for
     <img src="./logo.png" alt="">
     <div class="bg">
       this is bg for test
