@@ -2,7 +2,7 @@ import Vue from 'vue'
 // 使用多语言插件
 import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
-Vue.config.lang = window.localStorage.getItem('language') || 'zh'
+Vue.config.lang = window.localStorage.getItem('language') || 'en'
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource)

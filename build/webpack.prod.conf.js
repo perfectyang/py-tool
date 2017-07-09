@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var vuxLoader = require('vux-loader')
 
 var env = config.build.env
 
@@ -147,5 +148,6 @@ if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
-
-module.exports = webpackConfig
+module.exports =  vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui', 'duplicate-style']
+})

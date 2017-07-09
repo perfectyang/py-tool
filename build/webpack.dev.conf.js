@@ -5,6 +5,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var vuxLoader = require('vux-loader')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -16,7 +17,8 @@ var Mutil = require('./mutil')
 // 多页面配置
 var htmlPlugins = Mutil.htmlWebpacks(HtmlWebpackPlugin)
 
-module.exports = merge(baseWebpackConfig, {
+
+const baseWebpackConfig2 = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
@@ -39,4 +41,7 @@ module.exports = merge(baseWebpackConfig, {
     // }),
     new FriendlyErrorsPlugin()
   ].concat(htmlPlugins)
+})
+module.exports =  vuxLoader.merge(baseWebpackConfig2  , {
+  plugins: ['vux-ui', 'duplicate-style']
 })
