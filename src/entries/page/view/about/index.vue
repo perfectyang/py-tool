@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    这是m关于我们的222
+    this is another example for
     <img src="./logo.png" alt="">
     <div class="bg">
       this is bg for test
