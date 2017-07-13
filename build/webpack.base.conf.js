@@ -49,7 +49,14 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react']
+        },
+        exclude: [
+          path.resolve(__dirname, 'node_modules'),
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
