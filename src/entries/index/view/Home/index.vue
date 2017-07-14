@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    {{User}}
+    {{User}} ---- 新增测试00000------99999
     <button type="button" name="button" @click="getUser">getUser</button>
   </div>
 </template>

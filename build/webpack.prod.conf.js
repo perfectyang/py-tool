@@ -29,8 +29,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
+    filename: utils.assetsPath('js/[name].js?_hash=[chunkhash]'),
+    chunkFilename: utils.assetsPath('js/[name].js?_hash=[chunkhash]')
     // filename: utils.assetsPath('js/[name].js'),
     // chunkFilename: utils.assetsPath('js/[id].js')
   },
@@ -118,8 +118,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     //   *
     //    * name
     //    * dll bundle 输出到那个全局变量上
-    //    * 和 output.library 一样即可。 
-       
+    //    * 和 output.library 一样即可。
+
     //   // name: '[name]_library'
     // })
   ].concat(prodHtmlWebpacks)
