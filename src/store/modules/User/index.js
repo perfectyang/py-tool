@@ -14,9 +14,10 @@ const fetchData = async (info) => {
   return obj
 }
 
-const setUser = async ({ commit }, payload) => {
+const setUser = async (ctx, payload) => {
   let back = await fetchData(payload.info)
-  commit('SET_USER', {
+  console.log('ctx', ctx)
+  ctx.commit('SET_USER', {
     info: back.info,
     list: {
       name: '舞台右在在'
